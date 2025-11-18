@@ -2,7 +2,7 @@
 require "config/db.php"; 
 include "includes/header.php";
 
-$stmt = $pdo->query("SELECT * FROM productos");
+$stmt = $pdo->query("SELECT * FROM productos ORDER BY fecha_creacion DESC");
 $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // echo "<h1>Lista de productos</h1>";
 // foreach($productos as $producto){
@@ -38,7 +38,7 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <td>
         <div style="display: flex;">
           <a href="delete.php?id_producto=<?= $item["id_producto"] ?>" type="button" class="mx-2 btn btn-outline-danger">🗑️</a>
-          <a type="button" class="mx-2 btn btn-outline-info">✏️</a>
+          <a href="update.php?id_producto=<?= $item["id_producto"]?>" type="button" class="mx-2 btn btn-outline-info">✏️</a>
         </div>
       </td>
     <?php endforeach; ?>  

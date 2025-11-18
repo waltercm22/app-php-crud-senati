@@ -12,5 +12,4 @@ try{
     echo "Error al conectarse a la base de datos: ".$e->getMessage();
 }
 
-
-?>;
+?>
